@@ -22,18 +22,15 @@ public class MainActivity extends AppCompatActivity {
         vibrationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 normalVibrarte();
+                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                if(Build.VERSION.SDK_INT>=26) {
+                    VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE);
+                    vibrator.vibrate(5000);
+                }
+                else
+                    Toast.makeText(MainActivity.this, Build.VERSION.SDK_INT+"", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-
-    private void normalVibrarte()
-    {
-        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        if(Build.VERSION.SDK_INT>=26)
-        VibrationEffect.createOneShot(1000,VibrationEffect.DEFAULT_AMPLITUDE);
-        else
-            Toast.makeText(this, Build.VERSION.SDK_INT+"", Toast.LENGTH_SHORT).show();
-    }
 }

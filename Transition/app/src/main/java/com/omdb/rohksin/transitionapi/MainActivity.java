@@ -5,21 +5,20 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setAnimation();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setAnimation();
-        TextView textView = (TextView)findViewById(R.id.text);
+        TextView textView = findViewById(R.id.text);
 
-        Button button1 = (Button)findViewById(R.id.button);
+        Button button1 = findViewById(R.id.button);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        layout = (LinearLayout)findViewById(R.id.reveal);
+        layout = findViewById(R.id.reveal);
 
-        FloatingActionButton button = (FloatingActionButton)findViewById(R.id.fab);
+        FloatingActionButton button = findViewById(R.id.fab);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
